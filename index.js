@@ -28,11 +28,13 @@ app.get("/", (req, res)=>{
 //Routes for save a book
 app.use('/books', booksRoute);
 
+const port = Port || 3000;
+
 mongoose.connect(mongodbURL)
 .then(()=>{
     console.log("app connected to database"); 
-    app.listen(Port,()=>{
-        console.log("Server is running on port "+Port)
+    app.listen(port,()=>{
+        console.log("Server is running on port "+port)
     })
 })
 .catch((err)=>{
